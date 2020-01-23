@@ -74,3 +74,69 @@ class DCNet(th.nn.Module):
             x = x.view(-1, self.embedding_dim)
         x = l2_normalize(x, -1)
         return x
+
+class DCNetDecoder(th.nn.Module):
+    def __init__(self,
+                 num_bins,
+                 rnn="lstm",
+                 embedding_dim=129,
+                 num_layers=2,
+                 hidden_size=100,
+                 dropout=0.0,
+                 non_linear="tanh",
+                 bidirectional=True):
+        super(DCNetDecoder, self).__init__()
+        # num_bins = 20
+        # self.num_bins = num_bins
+        embedding_dim=129
+        if non_linear not in ['tanh', 'sigmoid']:
+            raise ValueError(
+                "Unsupported non-linear type: {}".format(non_linear))
+        rnn = rnn.upper()
+        if rnn not in ['RNN', 'LSTM', 'GRU']:
+            raise ValueError("Unsupported rnn type: {}".format(rnn))
+        #print(num_bins)
+        self.rnn = getattr(th.nn, rnn)(
+            num_bins,
+            hidden_size,
+            num_layers,
+            batch_first=True,
+            dropout=dropout,
+            bidirectional=bidirectional)
+        self.drops = th.nn.Dropout(p=dropout)
+        self.embed = th.nn.Linear(
+            hidden_size * 2
+            if bidirectional else hidden_size, embedding_dim)
+        self.non_linear = {
+            "tanh": th.nn.functional.tanh,
+            "sigmoid": th.nn.functional.sigmoid
+        }[non_linear]
+        self.embedding_dim = embedding_dim
+
+    def forward(self, x, train=True):
+        is_packed = isinstance(x, PackedSequence)
+        x = x.mean(dim=1)
+        x = x.view(-1, self.embedding_dim)
+        if not is_packed and x.dim() != 3:
+            x = th.unsqueeze(x, 0)
+        x, _ = self.rnn(x)
+        if is_packed:
+            x, _ = pad_packed_sequence(x, batch_first=True)
+        N = x.size(0)
+        #print("x shape", x.shape)
+        # N x T x H
+        x = self.drops(x)
+        # N x T x FD
+        x = self.embed(x)
+        x = self.non_linear(x)
+        #print("x afetr embed", x.shape)
+
+        if train:
+            # N x T x FD => N x TF x D
+            x = x.view(N, -1, self.embedding_dim)
+        else:
+            # for inference
+            # N x T x FD => NTF x D
+            x = x.view(-1, self.embedding_dim)
+        #x = l2_normalize(x, -1)
+        return x.squeeze()

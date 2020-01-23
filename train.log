@@ -1,0 +1,133 @@
+2019-11-07 04:18:48,962 [./train_dcnet.py:35 - INFO ] Start training in normal model
+2019-11-07 04:18:48,968 [./train_dcnet.py:44 - INFO ] Training in per utterance
+2019-11-07 04:18:48,988 [/home/ubuntu/deep-clustering/dataset.py:40 - INFO ] Create SpectrogramReader for ./data/2spk/train/wav8k_min_mix.scp with 20000 utterances
+2019-11-07 04:18:49,008 [/home/ubuntu/deep-clustering/dataset.py:40 - INFO ] Create SpectrogramReader for ./data/2spk/train/wav8k_min_s1.scp with 20000 utterances
+2019-11-07 04:18:49,028 [/home/ubuntu/deep-clustering/dataset.py:40 - INFO ] Create SpectrogramReader for ./data/2spk/train/wav8k_min_s2.scp with 20000 utterances
+2019-11-07 04:18:49,033 [/home/ubuntu/deep-clustering/dataset.py:40 - INFO ] Create SpectrogramReader for ./data/2spk/dev/wav8k_min_mix.scp with 5000 utterances
+2019-11-07 04:18:49,038 [/home/ubuntu/deep-clustering/dataset.py:40 - INFO ] Create SpectrogramReader for ./data/2spk/dev/wav8k_min_s1.scp with 5000 utterances
+2019-11-07 04:18:49,043 [/home/ubuntu/deep-clustering/dataset.py:40 - INFO ] Create SpectrogramReader for ./data/2spk/dev/wav8k_min_s2.scp with 5000 utterances
+2019-11-07 04:18:49,043 [./train_dcnet.py:61 - INFO ] Training for 20 epoches -> ./tune/2spk_dcnet_d...
+2019-11-07 04:18:49,172 [/home/ubuntu/deep-clustering/trainer.py:45 - INFO ] DCNet:
+DCNet(
+  (rnn): LSTM(129, 600, num_layers=2, batch_first=True, dropout=0.5, bidirectional=True)
+  (drops): Dropout(p=0.5, inplace=False)
+  (embed): Linear(in_features=1200, out_features=2580, bias=True)
+)
+2019-11-07 04:18:49,172 [/home/ubuntu/deep-clustering/trainer.py:30 - INFO ] Create optimizer rmsprop({'lr': 1e-05, 'momentum': 0.9, 'weight_decay': 0})
+2019-11-07 04:18:51,462 [/home/ubuntu/deep-clustering/trainer.py:57 - INFO ] Clip gradient by 2-norm 200
+2019-11-07 04:18:51,462 [/home/ubuntu/deep-clustering/trainer.py:85 - INFO ] Evaluating...
+/home/ubuntu/anaconda3/envs/pytorch_p36/lib/python3.6/site-packages/torch/nn/functional.py:1339: UserWarning: nn.functional.tanh is deprecated. Use torch.tanh instead.
+  warnings.warn("nn.functional.tanh is deprecated. Use torch.tanh instead.")
+2019-11-07 04:24:45,587 [/home/ubuntu/deep-clustering/dataset.py:238 - INFO ] Processed 2000 batches, 2000 utterances
+2019-11-07 04:30:24,403 [/home/ubuntu/deep-clustering/dataset.py:238 - INFO ] Processed 4000 batches, 4000 utterances
+2019-11-07 04:33:23,167 [/home/ubuntu/deep-clustering/dataset.py:240 - INFO ] Processed 5000 utterances in total
+2019-11-07 04:33:23,167 [/home/ubuntu/deep-clustering/trainer.py:103 - INFO ] Start training for 20 epoches
+2019-11-07 04:33:23,167 [/home/ubuntu/deep-clustering/trainer.py:104 - INFO ] Epoch  0: dev = 1.7330e+04
+2019-11-07 04:33:23,245 [/home/ubuntu/deep-clustering/trainer.py:63 - INFO ] Training...
+2019-11-07 04:50:49,694 [/home/ubuntu/deep-clustering/dataset.py:238 - INFO ] Processed 2000 batches, 2000 utterances
+2019-11-07 05:08:27,442 [/home/ubuntu/deep-clustering/dataset.py:238 - INFO ] Processed 4000 batches, 4000 utterances
+2019-11-07 05:25:56,744 [/home/ubuntu/deep-clustering/dataset.py:238 - INFO ] Processed 6000 batches, 6000 utterances
+2019-11-07 05:43:22,547 [/home/ubuntu/deep-clustering/dataset.py:238 - INFO ] Processed 8000 batches, 8000 utterances
+2019-11-07 06:00:55,515 [/home/ubuntu/deep-clustering/dataset.py:238 - INFO ] Processed 10000 batches, 10000 utterances
+2019-11-07 06:18:39,459 [/home/ubuntu/deep-clustering/dataset.py:238 - INFO ] Processed 12000 batches, 12000 utterances
+2019-11-07 06:36:05,654 [/home/ubuntu/deep-clustering/dataset.py:238 - INFO ] Processed 14000 batches, 14000 utterances
+2019-11-07 06:53:40,116 [/home/ubuntu/deep-clustering/dataset.py:238 - INFO ] Processed 16000 batches, 16000 utterances
+2019-11-07 07:11:03,630 [/home/ubuntu/deep-clustering/dataset.py:238 - INFO ] Processed 18000 batches, 18000 utterances
+2019-11-07 07:28:38,618 [/home/ubuntu/deep-clustering/dataset.py:238 - INFO ] Processed 20000 batches, 20000 utterances
+2019-11-07 07:28:39,127 [/home/ubuntu/deep-clustering/dataset.py:240 - INFO ] Processed 20000 utterances in total
+2019-11-07 07:28:39,128 [/home/ubuntu/deep-clustering/trainer.py:85 - INFO ] Evaluating...
+2019-11-07 07:34:33,835 [/home/ubuntu/deep-clustering/dataset.py:238 - INFO ] Processed 2000 batches, 2000 utterances
+2019-11-07 07:40:11,495 [/home/ubuntu/deep-clustering/dataset.py:238 - INFO ] Processed 4000 batches, 4000 utterances
+2019-11-07 07:43:06,161 [/home/ubuntu/deep-clustering/dataset.py:240 - INFO ] Processed 5000 utterances in total
+2019-11-07 07:43:06,161 [/home/ubuntu/deep-clustering/trainer.py:118 - INFO ] Loss(time/num-utts) - Epoch  1: train = 6.5292e+03(10515.88s/20000) | dev = 5.6794e+03(867.03s/5000)
+2019-11-07 07:43:06,239 [/home/ubuntu/deep-clustering/trainer.py:63 - INFO ] Training...
+2019-11-07 08:00:28,359 [/home/ubuntu/deep-clustering/dataset.py:238 - INFO ] Processed 2000 batches, 2000 utterances
+2019-11-07 08:17:55,099 [/home/ubuntu/deep-clustering/dataset.py:238 - INFO ] Processed 4000 batches, 4000 utterances
+2019-11-07 08:35:17,001 [/home/ubuntu/deep-clustering/dataset.py:238 - INFO ] Processed 6000 batches, 6000 utterances
+2019-11-07 08:52:35,213 [/home/ubuntu/deep-clustering/dataset.py:238 - INFO ] Processed 8000 batches, 8000 utterances
+2019-11-07 09:09:51,187 [/home/ubuntu/deep-clustering/dataset.py:238 - INFO ] Processed 10000 batches, 10000 utterances
+2019-11-07 09:27:13,134 [/home/ubuntu/deep-clustering/dataset.py:238 - INFO ] Processed 12000 batches, 12000 utterances
+2019-11-07 09:44:37,660 [/home/ubuntu/deep-clustering/dataset.py:238 - INFO ] Processed 14000 batches, 14000 utterances
+2019-11-07 10:01:56,533 [/home/ubuntu/deep-clustering/dataset.py:238 - INFO ] Processed 16000 batches, 16000 utterances
+2019-11-07 10:19:14,432 [/home/ubuntu/deep-clustering/dataset.py:238 - INFO ] Processed 18000 batches, 18000 utterances
+2019-11-07 10:36:43,657 [/home/ubuntu/deep-clustering/dataset.py:238 - INFO ] Processed 20000 batches, 20000 utterances
+2019-11-07 10:36:44,070 [/home/ubuntu/deep-clustering/dataset.py:240 - INFO ] Processed 20000 utterances in total
+2019-11-07 10:36:44,071 [/home/ubuntu/deep-clustering/trainer.py:85 - INFO ] Evaluating...
+2019-11-07 10:42:38,231 [/home/ubuntu/deep-clustering/dataset.py:238 - INFO ] Processed 2000 batches, 2000 utterances
+2019-11-07 10:48:15,412 [/home/ubuntu/deep-clustering/dataset.py:238 - INFO ] Processed 4000 batches, 4000 utterances
+2019-11-07 10:51:09,714 [/home/ubuntu/deep-clustering/dataset.py:240 - INFO ] Processed 5000 utterances in total
+2019-11-07 10:51:09,714 [/home/ubuntu/deep-clustering/trainer.py:118 - INFO ] Loss(time/num-utts) - Epoch  2: train = 5.4762e+03(10417.83s/20000) | dev = 5.0382e+03(865.64s/5000)
+2019-11-07 10:51:09,792 [/home/ubuntu/deep-clustering/trainer.py:63 - INFO ] Training...
+2019-11-07 11:08:23,715 [/home/ubuntu/deep-clustering/dataset.py:238 - INFO ] Processed 2000 batches, 2000 utterances
+2019-11-07 11:25:40,179 [/home/ubuntu/deep-clustering/dataset.py:238 - INFO ] Processed 4000 batches, 4000 utterances
+2019-11-07 11:43:01,100 [/home/ubuntu/deep-clustering/dataset.py:238 - INFO ] Processed 6000 batches, 6000 utterances
+2019-11-07 12:00:21,340 [/home/ubuntu/deep-clustering/dataset.py:238 - INFO ] Processed 8000 batches, 8000 utterances
+2019-11-07 12:17:44,249 [/home/ubuntu/deep-clustering/dataset.py:238 - INFO ] Processed 10000 batches, 10000 utterances
+2019-11-07 12:35:11,325 [/home/ubuntu/deep-clustering/dataset.py:238 - INFO ] Processed 12000 batches, 12000 utterances
+2019-11-07 12:52:26,619 [/home/ubuntu/deep-clustering/dataset.py:238 - INFO ] Processed 14000 batches, 14000 utterances
+2019-11-07 13:09:49,283 [/home/ubuntu/deep-clustering/dataset.py:238 - INFO ] Processed 16000 batches, 16000 utterances
+2019-11-07 13:27:20,188 [/home/ubuntu/deep-clustering/dataset.py:238 - INFO ] Processed 18000 batches, 18000 utterances
+2019-11-07 13:44:44,784 [/home/ubuntu/deep-clustering/dataset.py:238 - INFO ] Processed 20000 batches, 20000 utterances
+2019-11-07 13:44:45,431 [/home/ubuntu/deep-clustering/dataset.py:240 - INFO ] Processed 20000 utterances in total
+2019-11-07 13:44:45,432 [/home/ubuntu/deep-clustering/trainer.py:85 - INFO ] Evaluating...
+2019-11-07 13:50:38,558 [/home/ubuntu/deep-clustering/dataset.py:238 - INFO ] Processed 2000 batches, 2000 utterances
+2019-11-07 13:56:14,699 [/home/ubuntu/deep-clustering/dataset.py:238 - INFO ] Processed 4000 batches, 4000 utterances
+2019-11-07 13:59:08,734 [/home/ubuntu/deep-clustering/dataset.py:240 - INFO ] Processed 5000 utterances in total
+2019-11-07 13:59:08,735 [/home/ubuntu/deep-clustering/trainer.py:118 - INFO ] Loss(time/num-utts) - Epoch  3: train = 4.9942e+03(10415.64s/20000) | dev = 4.7571e+03(863.30s/5000)
+2019-11-07 13:59:08,812 [/home/ubuntu/deep-clustering/trainer.py:63 - INFO ] Training...
+2019-11-07 14:16:30,476 [/home/ubuntu/deep-clustering/dataset.py:238 - INFO ] Processed 2000 batches, 2000 utterances
+2019-11-07 14:33:52,348 [/home/ubuntu/deep-clustering/dataset.py:238 - INFO ] Processed 4000 batches, 4000 utterances
+2019-11-07 14:51:10,083 [/home/ubuntu/deep-clustering/dataset.py:238 - INFO ] Processed 6000 batches, 6000 utterances
+2019-11-07 15:08:40,313 [/home/ubuntu/deep-clustering/dataset.py:238 - INFO ] Processed 8000 batches, 8000 utterances
+2019-11-07 15:25:58,905 [/home/ubuntu/deep-clustering/dataset.py:238 - INFO ] Processed 10000 batches, 10000 utterances
+2019-11-07 15:43:15,706 [/home/ubuntu/deep-clustering/dataset.py:238 - INFO ] Processed 12000 batches, 12000 utterances
+2019-11-07 16:00:33,407 [/home/ubuntu/deep-clustering/dataset.py:238 - INFO ] Processed 14000 batches, 14000 utterances
+2019-11-07 16:17:47,352 [/home/ubuntu/deep-clustering/dataset.py:238 - INFO ] Processed 16000 batches, 16000 utterances
+2019-11-07 16:35:13,798 [/home/ubuntu/deep-clustering/dataset.py:238 - INFO ] Processed 18000 batches, 18000 utterances
+2019-11-07 16:52:35,956 [/home/ubuntu/deep-clustering/dataset.py:238 - INFO ] Processed 20000 batches, 20000 utterances
+2019-11-07 16:52:36,490 [/home/ubuntu/deep-clustering/dataset.py:240 - INFO ] Processed 20000 utterances in total
+2019-11-07 16:52:36,491 [/home/ubuntu/deep-clustering/trainer.py:85 - INFO ] Evaluating...
+2019-11-07 16:58:30,166 [/home/ubuntu/deep-clustering/dataset.py:238 - INFO ] Processed 2000 batches, 2000 utterances
+2019-11-07 17:04:06,803 [/home/ubuntu/deep-clustering/dataset.py:238 - INFO ] Processed 4000 batches, 4000 utterances
+2019-11-07 17:07:00,709 [/home/ubuntu/deep-clustering/dataset.py:240 - INFO ] Processed 5000 utterances in total
+2019-11-07 17:07:00,709 [/home/ubuntu/deep-clustering/trainer.py:118 - INFO ] Loss(time/num-utts) - Epoch  4: train = 4.6691e+03(10407.68s/20000) | dev = 4.4755e+03(864.22s/5000)
+2019-11-07 17:07:00,786 [/home/ubuntu/deep-clustering/trainer.py:63 - INFO ] Training...
+2019-11-07 17:24:21,334 [/home/ubuntu/deep-clustering/dataset.py:238 - INFO ] Processed 2000 batches, 2000 utterances
+2019-11-07 17:41:35,528 [/home/ubuntu/deep-clustering/dataset.py:238 - INFO ] Processed 4000 batches, 4000 utterances
+2019-11-07 17:58:59,686 [/home/ubuntu/deep-clustering/dataset.py:238 - INFO ] Processed 6000 batches, 6000 utterances
+2019-11-07 18:16:08,818 [/home/ubuntu/deep-clustering/dataset.py:238 - INFO ] Processed 8000 batches, 8000 utterances
+2019-11-07 18:33:25,388 [/home/ubuntu/deep-clustering/dataset.py:238 - INFO ] Processed 10000 batches, 10000 utterances
+2019-11-07 18:50:42,707 [/home/ubuntu/deep-clustering/dataset.py:238 - INFO ] Processed 12000 batches, 12000 utterances
+2019-11-07 19:08:06,175 [/home/ubuntu/deep-clustering/dataset.py:238 - INFO ] Processed 14000 batches, 14000 utterances
+2019-11-07 19:25:37,498 [/home/ubuntu/deep-clustering/dataset.py:238 - INFO ] Processed 16000 batches, 16000 utterances
+2019-11-07 19:43:00,779 [/home/ubuntu/deep-clustering/dataset.py:238 - INFO ] Processed 18000 batches, 18000 utterances
+2019-11-07 20:00:19,666 [/home/ubuntu/deep-clustering/dataset.py:238 - INFO ] Processed 20000 batches, 20000 utterances
+2019-11-07 20:00:20,177 [/home/ubuntu/deep-clustering/dataset.py:240 - INFO ] Processed 20000 utterances in total
+2019-11-07 20:00:20,178 [/home/ubuntu/deep-clustering/trainer.py:85 - INFO ] Evaluating...
+2019-11-07 20:06:13,876 [/home/ubuntu/deep-clustering/dataset.py:238 - INFO ] Processed 2000 batches, 2000 utterances
+2019-11-07 20:11:49,989 [/home/ubuntu/deep-clustering/dataset.py:238 - INFO ] Processed 4000 batches, 4000 utterances
+2019-11-07 20:14:43,639 [/home/ubuntu/deep-clustering/dataset.py:240 - INFO ] Processed 5000 utterances in total
+2019-11-07 20:14:43,640 [/home/ubuntu/deep-clustering/trainer.py:118 - INFO ] Loss(time/num-utts) - Epoch  5: train = 4.4322e+03(10399.39s/20000) | dev = 4.2792e+03(863.46s/5000)
+2019-11-07 20:14:43,716 [/home/ubuntu/deep-clustering/trainer.py:63 - INFO ] Training...
+2019-11-07 20:31:51,037 [/home/ubuntu/deep-clustering/dataset.py:238 - INFO ] Processed 2000 batches, 2000 utterances
+2019-11-07 20:49:15,547 [/home/ubuntu/deep-clustering/dataset.py:238 - INFO ] Processed 4000 batches, 4000 utterances
+2019-11-07 21:06:46,796 [/home/ubuntu/deep-clustering/dataset.py:238 - INFO ] Processed 6000 batches, 6000 utterances
+2019-11-07 21:24:00,465 [/home/ubuntu/deep-clustering/dataset.py:238 - INFO ] Processed 8000 batches, 8000 utterances
+2019-11-07 21:41:31,606 [/home/ubuntu/deep-clustering/dataset.py:238 - INFO ] Processed 10000 batches, 10000 utterances
+2019-11-07 21:59:02,617 [/home/ubuntu/deep-clustering/dataset.py:238 - INFO ] Processed 12000 batches, 12000 utterances
+2019-11-07 22:16:31,248 [/home/ubuntu/deep-clustering/dataset.py:238 - INFO ] Processed 14000 batches, 14000 utterances
+2019-11-07 22:33:50,391 [/home/ubuntu/deep-clustering/dataset.py:238 - INFO ] Processed 16000 batches, 16000 utterances
+2019-11-07 22:51:11,082 [/home/ubuntu/deep-clustering/dataset.py:238 - INFO ] Processed 18000 batches, 18000 utterances
+2019-11-07 23:08:24,756 [/home/ubuntu/deep-clustering/dataset.py:238 - INFO ] Processed 20000 batches, 20000 utterances
+2019-11-07 23:08:25,301 [/home/ubuntu/deep-clustering/dataset.py:240 - INFO ] Processed 20000 utterances in total
+2019-11-07 23:08:25,302 [/home/ubuntu/deep-clustering/trainer.py:85 - INFO ] Evaluating...
+2019-11-07 23:14:19,788 [/home/ubuntu/deep-clustering/dataset.py:238 - INFO ] Processed 2000 batches, 2000 utterances
+2019-11-07 23:19:56,968 [/home/ubuntu/deep-clustering/dataset.py:238 - INFO ] Processed 4000 batches, 4000 utterances
+2019-11-07 23:22:51,841 [/home/ubuntu/deep-clustering/dataset.py:240 - INFO ] Processed 5000 utterances in total
+2019-11-07 23:22:51,842 [/home/ubuntu/deep-clustering/trainer.py:118 - INFO ] Loss(time/num-utts) - Epoch  6: train = 4.2387e+03(10421.59s/20000) | dev = 4.1741e+03(866.54s/5000)
+2019-11-07 23:22:51,918 [/home/ubuntu/deep-clustering/trainer.py:63 - INFO ] Training...
+2019-11-07 23:40:16,631 [/home/ubuntu/deep-clustering/dataset.py:238 - INFO ] Processed 2000 batches, 2000 utterances
+2019-11-07 23:57:43,366 [/home/ubuntu/deep-clustering/dataset.py:238 - INFO ] Processed 4000 batches, 4000 utterances
+2019-11-08 00:15:06,835 [/home/ubuntu/deep-clustering/dataset.py:238 - INFO ] Processed 6000 batches, 6000 utterances
+2019-11-08 00:32:28,888 [/home/ubuntu/deep-clustering/dataset.py:238 - INFO ] Processed 8000 batches, 8000 utterances
+2019-11-08 00:49:49,593 [/home/ubuntu/deep-clustering/dataset.py:238 - INFO ] Processed 10000 batches, 10000 utterances
