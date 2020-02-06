@@ -6,3 +6,5 @@ data/
 .vscode/
 .ipynb_checkpoints/
 conf/.ipynb_checkpoints/
+wandb
+weights
