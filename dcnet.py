@@ -45,11 +45,19 @@ class DCNet(th.nn.Module):
         self.embed = th.nn.Linear(
             hidden_size * 2
             if bidirectional else hidden_size, num_bins * embedding_dim)
+        self.embed2 = th.nn.Linear(
+            hidden_size * 2
+            if bidirectional else hidden_size, num_bins * embedding_dim)
         self.non_linear = {
             "tanh": th.nn.functional.tanh,
             "sigmoid": th.nn.functional.sigmoid
         }[non_linear]
         self.embedding_dim = embedding_dim
+    
+    def reparameterize(self, mu, var):
+        std = th.exp(0.5 * var)
+        eps = th.randn_like(std)
+        return mu + eps*var
 
     def forward(self, x, train=True):
         is_packed = isinstance(x, PackedSequence)
@@ -62,18 +70,21 @@ class DCNet(th.nn.Module):
         # N x T x H
         x = self.drops(x)
         # N x T x FD
-        x = self.embed(x)
-        x = self.non_linear(x)
+        mu = self.embed(x)
+        var = self.embed2(x)
+        mu = self.non_linear(mu)
+        var = self.non_linear(var)
+        
 
-        if train:
-            # N x T x FD => N x TF x D
-            x = x.view(N, -1, self.embedding_dim)
-        else:
-            # for inference
-            # N x T x FD => NTF x D
-            x = x.view(-1, self.embedding_dim)
-        x = l2_normalize(x, -1)
-        return x
+    
+        mu = mu.view(-1, self.embedding_dim)
+        var = var.view(-1, self.embedding_dim)
+        mu = l2_normalize(mu, -1)
+        var = l2_normalize(var, -1)
+        z = self.reparameterize(mu, var)
+        return z, mu, var
+        
+    
 
 class DCNetDecoder(th.nn.Module):
     def __init__(self,
@@ -129,14 +140,7 @@ class DCNetDecoder(th.nn.Module):
         # N x T x FD
         x = self.embed(x)
         x = self.non_linear(x)
-        #print("x afetr embed", x.shape)
-
-        if train:
-            # N x T x FD => N x TF x D
-            x = x.view(N, -1, self.embedding_dim)
-        else:
-            # for inference
-            # N x T x FD => NTF x D
-            x = x.view(-1, self.embedding_dim)
+       
+        x = x.view(-1, self.embedding_dim)
         #x = l2_normalize(x, -1)
-        return x.squeeze()
+        return x
